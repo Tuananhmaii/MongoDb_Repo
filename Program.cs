@@ -1,4 +1,4 @@
-using MongoDb_Repo.Data;
+using MongoDb_Repo.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,4 +26,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 app.Run();
