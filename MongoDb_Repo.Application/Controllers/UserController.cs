@@ -1,32 +1,82 @@
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDb_Repo.Domain.Interface;
+using MongoDb_Repo.Domain.Models;
 using MongoDb_Repo.Infrastructure.Data;
 
 namespace MongoDb_Repo.Application.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    [ApiController]
+    public class UserController : ControllerBase
     {
-        private readonly MongoDbContext _context;
+        private readonly IUserRepository _userRepository;
 
-        public UsersController(MongoDbContext context)
+        public UserController(IUserRepository userRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
         }
 
-        [HttpGet("test-connection")]
-        public IActionResult TestConnection()
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            try
+            var users = await _userRepository.GetAllAsync();
+            return Ok(users);
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> Get(string id)
+        {
+            var user = await _userRepository.GetAsync(id);
+            if (user == null)
             {
-                var users = _context.Users.Find(_ => true).ToList();
-                return Ok("Successfully connected to MongoDB!");
+                return NotFound();
             }
-            catch (Exception ex)
+            return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] User user)
+        {
+            if (user == null)
             {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                return BadRequest();
             }
+
+            await _userRepository.AddAsync(user);
+            return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(string id, [FromBody] User user)
+        {
+            if (user == null || id != user.Id)
+            {
+                return BadRequest();
+            }
+
+            var existingUser = await _userRepository.GetAsync(id);
+            if (existingUser == null)
+            {
+                return NotFound();
+            }
+
+            await _userRepository.UpdateAsync(id, user);
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var user = await _userRepository.GetAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            await _userRepository.RemoveAsync(id);
+            return NoContent();
         }
     }
 }
