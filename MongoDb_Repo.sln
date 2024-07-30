@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Application", "MongoDb_Repo\MongoDb_Repo.Application.csproj", "{05D67373-0858-4BAC-B601-011EA9BAF8EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Application", "MongoDb_Repo.Application\MongoDb_Repo.Application.csproj", "{05D67373-0858-4BAC-B601-011EA9BAF8EA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Infrastructure", "Infrastructure\MongoDb_Repo.Infrastructure.csproj", "{4C16DEA4-9FC6-442B-A17C-C01238386D27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Infrastructure", "MongoDb_Repo.Infrastructure\MongoDb_Repo.Infrastructure.csproj", "{4C16DEA4-9FC6-442B-A17C-C01238386D27}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Domain", "MongoDb_Repo.Domain\MongoDb_Repo.Domain.csproj", "{5482C76F-4B4D-465E-B9F0-FD67E80061AE}"
 EndProject

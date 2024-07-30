@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\SmartDev\\MongoDb_Repo\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{05D67373-0858-4BAC-B601-011EA9BAF8EA}|MongoDb_Repo.Application\\MongoDb_Repo.Application.csproj|d:\\smartdev\\mongodb_repo\\mongodb_repo.application\\mongodb_repo.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{05D67373-0858-4BAC-B601-011EA9BAF8EA}|MongoDb_Repo.Application\\MongoDb_Repo.Application.csproj|solutionrelative:mongodb_repo.application\\mongodb_repo.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05D67373-0858-4BAC-B601-011EA9BAF8EA}|MongoDb_Repo.Application\\MongoDb_Repo.Application.csproj|d:\\smartdev\\mongodb_repo\\mongodb_repo.application\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05D67373-0858-4BAC-B601-011EA9BAF8EA}|MongoDb_Repo.Application\\MongoDb_Repo.Application.csproj|solutionrelative:mongodb_repo.application\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,6 +35,31 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MongoDb_Repo.Application.csproj",
+              "DocumentMoniker": "D:\\SmartDev\\MongoDb_Repo\\MongoDb_Repo.Application\\MongoDb_Repo.Application.csproj",
+              "RelativeDocumentMoniker": "MongoDb_Repo.Application\\MongoDb_Repo.Application.csproj",
+              "ToolTip": "D:\\SmartDev\\MongoDb_Repo\\MongoDb_Repo.Application\\MongoDb_Repo.Application.csproj",
+              "RelativeToolTip": "MongoDb_Repo.Application\\MongoDb_Repo.Application.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-07-30T08:13:36.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\SmartDev\\MongoDb_Repo\\MongoDb_Repo.Application\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "MongoDb_Repo.Application\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\SmartDev\\MongoDb_Repo\\MongoDb_Repo.Application\\Controllers\\UserController.cs",
+              "RelativeToolTip": "MongoDb_Repo.Application\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-30T08:12:45.4Z"
             }
           ]
         },
