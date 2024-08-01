@@ -1,44 +1,20 @@
-import React, { useState, useEffect } from 'react';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-function UserComponent() {
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+import LoginPage from './LoginPage';
+import ProfilePage from './ProfilePage';
 
-  useEffect(() => {
-    // Define the function to fetch data
-    const fetchData = async () => {
-      try {
-        const response = await fetch('https://localhost:7171/api/user');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        setUserData(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    // Call the fetch function
-    fetchData();
-  }, []);
-
-  // Render the component
+function App() {
   return (
-    <div>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
-      {userData && (
-        <div>
-          <h2>User Data</h2>
-          <pre>{JSON.stringify(userData, null, 2)}</pre>
-        </div>
-      )}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/main" element={<ProfilePage />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default UserComponent;
+export default App;

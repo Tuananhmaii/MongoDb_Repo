@@ -15,5 +15,10 @@ namespace MongoDb_Repo.Domain.Repository
             : base(database, "Users")
         {
         }
+        public async Task<User> GetByEmail(string email)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Email, email);
+            return await _collection.Find(filter).FirstOrDefaultAsync();
+        }
     }
 }

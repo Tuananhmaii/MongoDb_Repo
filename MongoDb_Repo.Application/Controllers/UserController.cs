@@ -25,10 +25,21 @@ namespace MongoDb_Repo.Application.Controllers
             return Ok(users);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> Get(string id)
+        //{
+        //    var user = await _userRepository.GetAsync(id);
+        //    if (user == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(user);
+        //}
+
+        [HttpGet("{email}")]
+        public async Task<IActionResult> GetByEmail(string email)
         {
-            var user = await _userRepository.GetAsync(id);
+            var user = await _userRepository.GetByEmail(email);
             if (user == null)
             {
                 return NotFound();

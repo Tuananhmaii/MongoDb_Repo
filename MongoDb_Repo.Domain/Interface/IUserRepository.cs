@@ -9,5 +9,6 @@ namespace MongoDb_Repo.Domain.Interface
 {
     public interface IUserRepository : IRepository<User>
     {
+        Task<User> GetByEmail(string email);
     }
 }
