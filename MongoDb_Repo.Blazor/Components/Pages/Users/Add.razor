@@ -1,0 +1,68 @@
+﻿@page "/Users/Add"
+@inject UserService UserService
+@inject ISnackbar Snackbar
+
+<MudCard>
+    <MudForm Model="@user" @ref="form" ValidationDelay="0">
+        <MudCardContent>
+            <MudTextField @bind-Value="user.Id" For="@(() => user.Id)" Label="Id" Disabled="true" />
+            <MudTextField @bind-Value="user.Email" For="@(() => user.Email)" Immediate="true" Label="Email" />
+            <MudTextField @bind-Value="user.Name" For="@(() => user.Name)" Immediate="true" Label="Name" />
+            <MudTextField @bind-Value="user.Title" For="@(() => user.Title)" Immediate="true" Label="Title" />
+        </MudCardContent>
+        <MudCardContent Class="pa-0">
+        </MudCardContent>
+    </MudForm>
+    <MudCardActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto"
+            OnClick="@(async () => await Submit())">Create</MudButton>
+    </MudCardActions>
+</MudCard>
+
+@code {
+    private User user = new User();
+    private MudForm form;
+    private string submissionMessage;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        user.Id = Generate24DigitHex();
+    }
+
+    private static string Generate24DigitHex()
+    {
+        byte[] buffer = new byte[12];
+        Random random = new Random();
+        random.NextBytes(buffer);
+        string hexString = BitConverter.ToString(buffer).Replace("-", "").ToLower();
+        return hexString;
+    }
+
+    private async Task Submit()
+    {
+        await form.Validate();
+        if (form.IsValid)
+        {
+            user.CreationTime = DateTime.Now;
+            try
+            {
+                var result = await UserService.AddUserAsync(user);
+                if (result)
+                {
+                    Snackbar.Add("Add user successfully", Severity.Success);
+                    await form.ResetAsync();
+                    user.Id = Generate24DigitHex();
+                }
+                else
+                {
+                    Snackbar.Add("Failed to add user. Please try again.", Severity.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"An error occurred: {ex.Message}", Severity.Error);
+            }
+        }
+    }
+}

@@ -1,0 +1,58 @@
+﻿@page "/Users/Update/{email}"
+@inject UserService UserService
+@inject ISnackbar Snackbar
+
+<MudCard>
+    <MudForm Model="@user" @ref="form" ValidationDelay="0">
+        <MudCardContent>
+            <MudTextField @bind-Value="user.Id" For="@(() => user.Id)" Label="Id" Disabled="true" />
+            <MudTextField @bind-Value="user.Email" For="@(() => user.Email)" Immediate="true" Label="Email" />
+            <MudTextField @bind-Value="user.Name" For="@(() => user.Name)" Immediate="true" Label="Name" />
+            <MudTextField @bind-Value="user.Title" For="@(() => user.Title)" Immediate="true" Label="Title" />
+        </MudCardContent>
+        <MudCardContent Class="pa-0">
+        </MudCardContent>
+    </MudForm>
+    <MudCardActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto" OnClick="@(async () => await Submit())">Update</MudButton>
+    </MudCardActions>
+</MudCard>
+
+@code {
+    [Parameter]
+    public string email { get; set; }
+    private User user = new User();
+    private MudForm form;
+    private string submissionMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = await UserService.GetUserByEmailAsync(email);
+    }
+
+    private async Task Submit()
+    {
+        await form.Validate();
+        if (form.IsValid)
+        {
+            user.CreationTime = DateTime.Now;
+            try
+            {
+                var result = await UserService.UpdateUserAsync(user.Id, user);
+                if (result)
+                {
+                    Snackbar.Add("Update user successfully", Severity.Success);
+                    submissionMessage = "Update success.";
+                }
+                else
+                {
+                    Snackbar.Add("Failed to update user. Please try again.", Severity.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Snackbar.Add($"An error occurred: {ex.Message}", Severity.Error);
+            }
+        }
+    }
+}

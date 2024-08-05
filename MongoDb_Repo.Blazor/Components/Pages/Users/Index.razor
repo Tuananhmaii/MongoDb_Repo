@@ -1,0 +1,68 @@
+@page "/Users/Index"
+@using System.Net.Http.Json
+@inject NavigationManager NavigationManager;
+@inject UserService UserService
+@inject ISnackbar Snackbar
+
+<div style="display: flex; justify-content: flex-end;">
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="RedirectNewUser">
+        New User
+    </MudButton>
+</div>
+
+<MudTable T="User" Items="@userList" Hover="true" OnRowClick="@(async e => await RowClickEvent(e))"
+          OnRowMouseEnter="RowMouseEnterEvent" OnRowMouseLeave="RowMouseLeaveEvent" Breakpoint="Breakpoint.Sm">
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Email</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Created at</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="Email">@context.Email</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="CreationTime">@context.CreationTime</MudTd>
+    </RowTemplate>
+</MudTable>
+
+@* <MudText>Currently hovered: @(currentlyHoveredElement)</MudText>
+<MudText>Last hovered: @(lastHoveredElement)</MudText> *@
+
+@code {
+    private IEnumerable<User> userList = new List<User>();
+
+    private string currentlyHoveredElement;
+    private string lastHoveredElement;
+
+    private void ShowSnackbar()
+    {
+        Snackbar.Add("Simple Snackbar", Severity.Normal);
+        Console.WriteLine("Button clicked");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        userList = await UserService.GetUserList();
+    }
+
+    private void RowMouseEnterEvent(TableRowHoverEventArgs<User> eventArgs)
+    {
+        currentlyHoveredElement = eventArgs.Item.Name;
+    }
+
+    private void RowMouseLeaveEvent(TableRowHoverEventArgs<User> eventArgs)
+    {
+        currentlyHoveredElement = "";
+        lastHoveredElement = eventArgs.Item.Name;
+    }
+
+    private async Task RowClickEvent(TableRowClickEventArgs<User> e)
+    {
+        NavigationManager.NavigateTo($"/Users/Update/{e.Item.Email}");
+    }
+    private async Task RedirectNewUser()
+    {
+        NavigationManager.NavigateTo("/Users/Add/");
+    }
+}
