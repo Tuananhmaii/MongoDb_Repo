@@ -1,6 +1,6 @@
 @page "/Users/Index"
 @using System.Net.Http.Json
-@inject NavigationManager NavigationManager;
+@inject NavigationManager NavigationManager
 @inject UserService UserService
 @inject ISnackbar Snackbar
 
@@ -17,29 +17,26 @@
         <MudTh>Email</MudTh>
         <MudTh>Name</MudTh>
         <MudTh>Created at</MudTh>
+        <MudTh></MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="Id">@context.Id</MudTd>
         <MudTd DataLabel="Email">@context.Email</MudTd>
         <MudTd DataLabel="Name">@context.Name</MudTd>
         <MudTd DataLabel="CreationTime">@context.CreationTime</MudTd>
+        <MudTd>
+            <MudButton Color="Color.Error" @onclick="() => DeleteUser(context.Id)">
+                <MudIcon Icon="@Icons.Material.Filled.Delete" Title="Favorite" />
+            </MudButton>
+        </MudTd>
     </RowTemplate>
 </MudTable>
-
-@* <MudText>Currently hovered: @(currentlyHoveredElement)</MudText>
-<MudText>Last hovered: @(lastHoveredElement)</MudText> *@
 
 @code {
     private IEnumerable<User> userList = new List<User>();
 
     private string currentlyHoveredElement;
     private string lastHoveredElement;
-
-    private void ShowSnackbar()
-    {
-        Snackbar.Add("Simple Snackbar", Severity.Normal);
-        Console.WriteLine("Button clicked");
-    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -61,8 +58,23 @@
     {
         NavigationManager.NavigateTo($"/Users/Update/{e.Item.Email}");
     }
-    private async Task RedirectNewUser()
+
+    private void RedirectNewUser()
     {
-        NavigationManager.NavigateTo("/Users/Add/");
+        NavigationManager.NavigateTo("/Users/Add");
+    }
+
+    private async Task DeleteUser(string id)
+    {
+        bool success = await UserService.DeleteUser(id);
+        if (success)
+        {
+            Snackbar.Add("User deleted successfully", Severity.Success);
+            userList = await UserService.GetUserList();
+        }
+        else
+        {
+            Snackbar.Add("Failed to delete user", Severity.Error);
+        }
     }
 }

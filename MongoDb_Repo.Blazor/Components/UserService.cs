@@ -34,5 +34,9 @@ public class UserService
         return response.IsSuccessStatusCode;
     }
 
-    // Add other methods as needed
+    public async Task<bool> DeleteUser(string id)
+    {
+        var response = await _httpClient.DeleteAsync($"api/user/{id}");
+        return response.IsSuccessStatusCode;
+    }
 }
