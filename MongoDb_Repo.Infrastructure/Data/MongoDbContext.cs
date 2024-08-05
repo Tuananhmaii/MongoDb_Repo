@@ -15,6 +15,7 @@ namespace MongoDb_Repo.Infrastructure.Data
         }
 
         public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
+        public IMongoCollection<EvaluationFile> EvaluationFiles => _database.GetCollection<EvaluationFile>("EvaluationFiles");
     }
 
     public class MongoDbSettings
