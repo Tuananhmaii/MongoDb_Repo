@@ -1,12 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDb_Repo.Domain.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MongoDb_Repo.Domain.Repository
 {
@@ -47,6 +42,11 @@ namespace MongoDb_Repo.Domain.Repository
         public async Task RemoveAsync(string id)
         {
             await _collection.DeleteOneAsync(Builders<T>.Filter.Eq("_id", new ObjectId(id)));
+        }
+
+        public async Task AddManyAsync(IEnumerable<T> entities)
+        {
+            await _collection.InsertManyAsync(entities);
         }
     }
 }

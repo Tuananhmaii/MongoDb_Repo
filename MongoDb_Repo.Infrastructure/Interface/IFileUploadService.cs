@@ -2,6 +2,6 @@
 {
     public interface IFileUploadService
     {
-        public Task HandleEvaluationFiles(IEnumerable<Stream> files);
+        public Task<int> HandleEvaluationFiles(IEnumerable<Stream> files,string authorId);
     }
 }

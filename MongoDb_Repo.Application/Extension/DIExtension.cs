@@ -10,6 +10,7 @@ namespace MongoDb_Repo.Application.Extension
         {
             services.AddScoped<IFileUploadService, FileUploadService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IEvaluationFileRepository, EvaluationFileRepository>();
             return services;
         }
     }
