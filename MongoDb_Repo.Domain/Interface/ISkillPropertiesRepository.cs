@@ -2,5 +2,5 @@
 
 namespace MongoDb_Repo.Domain.Interface
 {
-    public interface IEvaluationFileRepository : IRepository<EvaluationFile>{}
+    public interface ISkillPropertiesRepository : IRepository<SkillProperty>{}
 }

@@ -15,9 +15,8 @@ namespace MongoDb_Repo.Infrastructure.Data
         }
 
         public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
-        public IMongoCollection<UserSkill> UserSkills => _database.GetCollection<UserSkill>("UserSkills");
+        public IMongoCollection<UserSkill> UserSkill => _database.GetCollection<UserSkill>("UserSkills");
         public IMongoCollection<SkillProperty> SkillProperties => _database.GetCollection<SkillProperty>("SkillProperties");
-        public IMongoCollection<EvaluationFile> EvaluationFiles => _database.GetCollection<EvaluationFile>("EvaluationFiles");
     }
 
     public class MongoDbSettings

@@ -11,12 +11,15 @@ namespace MongoDb_Repo.Domain.Models
 
         [BsonRepresentation(BsonType.ObjectId)]
         public string? AuthorId { get; init; }
-        public DateTime Created { get; init; }
-        public DateTime Modified { get; } = DateTime.UtcNow;
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
+        public DateTime Created { get; set; }
+        [BsonDateTimeOptions(Kind = DateTimeKind.Utc)]
+        public DateTime Modified { get;} = DateTime.UtcNow;
         public string? SkillName { get; set; }
         public SkillLevel SkillLevel { get; set; } = SkillLevel.Unknown;
         public List<SkillProperty>? SkillProperties { get; set; }
-
+        public string? FromFile { get; init; }
+        
     }
 
     public enum SkillLevel
