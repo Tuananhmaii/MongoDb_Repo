@@ -19,12 +19,7 @@ namespace MongoDb_Repo.Domain.Repository
         {
             var filter = Builders<User>.Filter.Empty;
             var users = await _collection.Find(filter).ToListAsync();
-
-            foreach (var user in users)
-            {
-                user.UserSkills = await _userSkillRepository.GetSkillsByUserId(user.Id);
-            }
-
+            
             return users;
         }
 
