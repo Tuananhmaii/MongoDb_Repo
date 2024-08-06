@@ -21,5 +21,7 @@ namespace MongoDb_Repo.Domain.Models
         public DateTime? LastActivityTime { get; set; }
         public DateTime? LastUpdateTime { get; set; }
         public DateTime? CreationTime { get; set; }
+        public List<UserSkill>? UserSkills { get; set; }
+
     }
 }

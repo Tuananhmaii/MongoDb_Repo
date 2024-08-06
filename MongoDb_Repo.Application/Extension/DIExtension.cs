@@ -9,8 +9,8 @@ namespace MongoDb_Repo.Application.Extension
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<IFileUploadService,FileUploadService>();
-            services.AddScoped<IExcelService,ExcelService>();
+            services.AddScoped<IFileUploadService, FileUploadService>();
+            services.AddScoped<IExcelService, ExcelService>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserSkillRepository, UserSkillRepository>();
             services.AddScoped<ISkillPropertiesRepository, SkillPropertiesRepository>();

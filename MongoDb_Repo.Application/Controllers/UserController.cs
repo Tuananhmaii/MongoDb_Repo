@@ -21,7 +21,7 @@ namespace MongoDb_Repo.Application.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var users = await _userRepository.GetAllAsync();
+            var users = await _userRepository.GetUserList();
             return Ok(users);
         }
 
@@ -39,7 +39,7 @@ namespace MongoDb_Repo.Application.Controllers
         [HttpGet("{email}")]
         public async Task<IActionResult> GetByEmail(string email)
         {
-            var user = await _userRepository.GetByEmail(email);
+            var user = await _userRepository.GetUserByEmail(email);
             if (user == null)
             {
                 return NotFound();
