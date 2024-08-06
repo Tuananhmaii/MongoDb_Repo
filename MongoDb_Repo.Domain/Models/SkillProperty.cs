@@ -1,8 +1,14 @@
-﻿namespace MongoDb_Repo.Domain.Models
+﻿using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson;
+
+namespace MongoDb_Repo.Domain.Models
 {
     public record SkillProperty
     {
+        [BsonRepresentation(BsonType.ObjectId)]
         public string? SkillId { get; init; }
+        public string? Description { get; set; }
+        public string? Details { get; set; }
         public string? AdvancedLevelRequirements { get; set; }
         public string? ExpertLevelRequirements { get; set; }
         public LevelRequirement? LevelRequirements { get; set; }
@@ -16,7 +22,8 @@
         Rookie,
         Junior,
         Middle,
-        Senior
+        Senior,
+        Unknown
     }
 
 }
