@@ -1,6 +1,6 @@
 ﻿namespace MongoDb_Repo.Domain.Models
 {
-    public record SkillProperties
+    public record SkillProperty
     {
         public string? SkillId { get; init; }
         public string? AdvancedLevelRequirements { get; set; }

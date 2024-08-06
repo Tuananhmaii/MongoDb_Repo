@@ -7,16 +7,16 @@ namespace MongoDb_Repo.Domain.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get;} = ObjectId.GenerateNewId().ToString();
-        
+        public string Id { get; } = ObjectId.GenerateNewId().ToString();
+
         [BsonRepresentation(BsonType.ObjectId)]
         public string? AuthorId { get; init; }
-        public DateTime Created { get; init; }  
-        public DateTime Modified { get;} = DateTime.UtcNow;
+        public DateTime Created { get; init; }
+        public DateTime Modified { get; } = DateTime.UtcNow;
         public string? SkillName { get; set; }
         public SkillLevel SkillLevel { get; set; } = SkillLevel.Unknown;
-        public List<SkillProperties>? SkillProperties { get; set; }
-        
+        public List<SkillProperty>? SkillProperties { get; set; }
+
     }
 
     public enum SkillLevel
