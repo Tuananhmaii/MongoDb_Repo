@@ -1,11 +1,13 @@
-﻿using MongoDb_Repo.Domain.Interface;
+﻿using Microsoft.Extensions.DependencyInjection;
+using MongoDb_Repo.Domain.Interface.Service;
+using MongoDb_Repo.Domain.Interface.Repository;
 using MongoDb_Repo.Domain.Repository;
-using MongoDb_Repo.Infrastructure.Interface;
 using MongoDb_Repo.Infrastructure.Service;
+
 
 namespace MongoDb_Repo.Application.Extension
 {
-    public static class DIExtension
+    public static class ServiceCollectionExtension
     {
         public static IServiceCollection RegisterServices(this IServiceCollection services)
         {

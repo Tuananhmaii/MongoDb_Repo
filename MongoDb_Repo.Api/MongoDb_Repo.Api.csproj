@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MudBlazor" Version="7.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Application\MongoDb_Repo.Application.csproj" />
     <ProjectReference Include="..\MongoDb_Repo.Application\MongoDb_Repo.Application.csproj" />
     <ProjectReference Include="..\MongoDb_Repo.Domain\MongoDb_Repo.Domain.csproj" />
+    <ProjectReference Include="..\MongoDb_Repo.Infrastructure\MongoDb_Repo.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

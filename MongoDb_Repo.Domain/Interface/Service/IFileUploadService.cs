@@ -1,4 +1,4 @@
-﻿namespace MongoDb_Repo.Domain.Interface
+﻿namespace MongoDb_Repo.Domain.Interface.Service
 {
     public interface IFileUploadService
     {

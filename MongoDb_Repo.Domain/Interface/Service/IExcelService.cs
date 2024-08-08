@@ -1,6 +1,6 @@
 ﻿using MongoDb_Repo.Domain.Models;
 
-namespace MongoDb_Repo.Infrastructure.Interface
+namespace MongoDb_Repo.Domain.Interface.Service
 {
     public interface IExcelService
     {

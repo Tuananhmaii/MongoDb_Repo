@@ -1,5 +1,5 @@
 ﻿using MongoDB.Driver;
-using MongoDb_Repo.Domain.Interface;
+using MongoDb_Repo.Domain.Interface.Repository;
 using MongoDb_Repo.Domain.Models;
 
 namespace MongoDb_Repo.Domain.Repository
