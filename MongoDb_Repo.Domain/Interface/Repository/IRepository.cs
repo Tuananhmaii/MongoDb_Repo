@@ -10,5 +10,6 @@ namespace MongoDb_Repo.Domain.Interface.Repository
         Task AddManyAsync(IEnumerable<T> entities);
         Task UpdateAsync(string id, T entity);
         Task RemoveAsync(string id);
+        IQueryable<T> GetQueryAble();
     }
 }

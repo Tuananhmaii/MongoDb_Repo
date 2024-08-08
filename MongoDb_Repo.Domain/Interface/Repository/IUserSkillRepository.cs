@@ -2,5 +2,8 @@
 
 namespace MongoDb_Repo.Domain.Interface.Repository
 {
-    public interface IUserSkillRepository : IRepository<UserSkill> { }
+    public interface IUserSkillRepository : IRepository<UserSkill> 
+    {
+        Task<List<UserSkill>> AggregateWithProperties();
+    }
 }

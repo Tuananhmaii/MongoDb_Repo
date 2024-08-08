@@ -48,5 +48,10 @@ namespace MongoDb_Repo.Domain.Repository
         {
             await _collection.InsertManyAsync(entities);
         }
+
+        public IQueryable<T> GetQueryAble()
+        {
+            return _collection.AsQueryable();
+        }
     }
 }
