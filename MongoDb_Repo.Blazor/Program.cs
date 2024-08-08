@@ -2,6 +2,7 @@ using MongoDb_Repo.Blazor.Components;
 using MudBlazor;
 using MudBlazor.Services;
 using MongoDb_Repo.Application.Service;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,10 +25,11 @@ builder.Services.AddMudServices(config =>
 });
 
 builder.Services.AddScoped(sp =>
-    new HttpClient
-    {
-        BaseAddress = new Uri("https://localhost:7219")
-    });
+{
+    var configuration = sp.GetRequiredService<IConfiguration>();
+    var baseUrl = configuration.GetSection("ApiSettings:BaseUrls").Get<string[]>().First();
+    return new HttpClient { BaseAddress = new Uri(baseUrl) };
+});
 
 builder.Services.AddScoped<UserService>();
 

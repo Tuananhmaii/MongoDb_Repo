@@ -236,3 +236,4 @@ _Pvt_Extensions
 # Configuration files
 appsettings.json
 appsettings.Development.json
+/MongoDb_Repo.Blazor/appsettings_example.Development.json

@@ -13,6 +13,7 @@
         <MudTh>Id</MudTh>
         <MudTh>Email</MudTh>
         <MudTh>Name</MudTh>
+        <MudTh>Title</MudTh>
         <MudTh>Created at</MudTh>
         <MudTh></MudTh>
     </HeaderContent>
@@ -20,6 +21,7 @@
         <MudTd DataLabel="Id">@context.Id</MudTd>
         <MudTd DataLabel="Email">@context.Email</MudTd>
         <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Title">@context.Title</MudTd>
         <MudTd DataLabel="CreationTime">@context.CreationTime</MudTd>
         <MudTd>
             <MudButton Color="Color.Error" @onclick="() => DeleteUser(context.Id)">
