@@ -4,7 +4,7 @@ using MongoDb_Repo.Application.Extension;
 using MongoDb_Repo.Domain.Interface.Service;
 using System.Data;
 
-namespace MongoDb_Repo.Infrastructure.Service
+namespace MongoDb_Repo.Application.Service
 {
     public class ExcelService : IExcelService
     {

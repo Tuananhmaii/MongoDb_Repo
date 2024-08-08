@@ -1,7 +1,7 @@
 ﻿using MongoDb_Repo.Domain.Interface.Repository;
 using MongoDb_Repo.Domain.Interface.Service;
 
-namespace MongoDb_Repo.Infrastructure.Service
+namespace MongoDb_Repo.Application.Service
 {
     public class FileUploadService(
         IExcelService excelService,

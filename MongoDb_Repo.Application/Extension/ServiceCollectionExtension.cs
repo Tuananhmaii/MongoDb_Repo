@@ -2,7 +2,7 @@
 using MongoDb_Repo.Domain.Interface.Service;
 using MongoDb_Repo.Domain.Interface.Repository;
 using MongoDb_Repo.Domain.Repository;
-using MongoDb_Repo.Infrastructure.Service;
+using MongoDb_Repo.Application.Service;
 
 
 namespace MongoDb_Repo.Application.Extension

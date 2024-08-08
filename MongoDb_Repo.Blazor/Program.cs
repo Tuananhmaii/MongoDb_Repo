@@ -1,6 +1,7 @@
 using MongoDb_Repo.Blazor.Components;
 using MudBlazor;
 using MudBlazor.Services;
+using MongoDb_Repo.Application.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
