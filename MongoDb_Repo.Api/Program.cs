@@ -1,9 +1,7 @@
-using MongoDb_Repo.Infrastructure.Data;
-using MongoDb_Repo.Application.Extension;
-using MongoDb_Repo.Domain.Interface;
-using MongoDb_Repo.Domain.Repository;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using MongoDb_Repo.Application.Extension;
+using MongoDb_Repo.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

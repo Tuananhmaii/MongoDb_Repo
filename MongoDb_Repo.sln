@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Application", "MongoDb_Repo.Application\MongoDb_Repo.Application.csproj", "{05D67373-0858-4BAC-B601-011EA9BAF8EA}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Infrastructure", "MongoDb_Repo.Infrastructure\MongoDb_Repo.Infrastructure.csproj", "{4C16DEA4-9FC6-442B-A17C-C01238386D27}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Domain", "MongoDb_Repo.Domain\MongoDb_Repo.Domain.csproj", "{5482C76F-4B4D-465E-B9F0-FD67E80061AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDb_Repo.Blazor", "MongoDb_Repo.Blazor\MongoDb_Repo.Blazor.csproj", "{93DBC13D-EC70-4953-87C0-B162888D07F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Blazor", "MongoDb_Repo.Blazor\MongoDb_Repo.Blazor.csproj", "{93DBC13D-EC70-4953-87C0-B162888D07F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Api", "MongoDb_Repo.Api\MongoDb_Repo.Api.csproj", "{8865FAE5-5286-4038-9937-CF8EB6290DE6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDb_Repo.Application", "MongoDb_Repo.Application\MongoDb_Repo.Application.csproj", "{DDF41AE2-1540-49FC-A47F-706247524E9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{05D67373-0858-4BAC-B601-011EA9BAF8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05D67373-0858-4BAC-B601-011EA9BAF8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05D67373-0858-4BAC-B601-011EA9BAF8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05D67373-0858-4BAC-B601-011EA9BAF8EA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4C16DEA4-9FC6-442B-A17C-C01238386D27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4C16DEA4-9FC6-442B-A17C-C01238386D27}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C16DEA4-9FC6-442B-A17C-C01238386D27}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +31,14 @@ Global
 		{93DBC13D-EC70-4953-87C0-B162888D07F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93DBC13D-EC70-4953-87C0-B162888D07F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93DBC13D-EC70-4953-87C0-B162888D07F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8865FAE5-5286-4038-9937-CF8EB6290DE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8865FAE5-5286-4038-9937-CF8EB6290DE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8865FAE5-5286-4038-9937-CF8EB6290DE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8865FAE5-5286-4038-9937-CF8EB6290DE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDF41AE2-1540-49FC-A47F-706247524E9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF41AE2-1540-49FC-A47F-706247524E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF41AE2-1540-49FC-A47F-706247524E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF41AE2-1540-49FC-A47F-706247524E9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

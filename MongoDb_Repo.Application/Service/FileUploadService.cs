@@ -1,7 +1,7 @@
-﻿using MongoDb_Repo.Domain.Interface;
-using MongoDb_Repo.Infrastructure.Interface;
+﻿using MongoDb_Repo.Domain.Interface.Repository;
+using MongoDb_Repo.Domain.Interface.Service;
 
-namespace MongoDb_Repo.Infrastructure.Service
+namespace MongoDb_Repo.Application.Service
 {
     public class FileUploadService(
         IExcelService excelService,
@@ -13,9 +13,9 @@ namespace MongoDb_Repo.Infrastructure.Service
         private readonly IUserSkillRepository _userSkillRepository = userSkillRepository;
         private readonly ISkillPropertiesRepository _skillPropertiesRepository = skillPropertiesRepository;
 
-        public async Task<int> HandleEvaluationFiles(IEnumerable<KeyValuePair<string,Stream>> files, string authorId)
+        public async Task<int> HandleEvaluationFiles(IEnumerable<KeyValuePair<string, Stream>> files, string authorId)
         {
-            var (skillList,propertiesList,filesExtracted) = _excelService.ExtractEvaluationData(files,authorId);
+            var (skillList, propertiesList, filesExtracted) = _excelService.ExtractEvaluationData(files, authorId);
             await _userSkillRepository.AddManyAsync(skillList);
             await _skillPropertiesRepository.AddManyAsync(propertiesList);
             return filesExtracted;

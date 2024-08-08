@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDb_Repo.Domain.Interface;
+using MongoDb_Repo.Domain.Interface.Repository;
 using System.Linq.Expressions;
 
 namespace MongoDb_Repo.Domain.Repository

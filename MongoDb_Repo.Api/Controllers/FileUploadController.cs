@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MongoDb_Repo.Domain.Interface;
+using MongoDb_Repo.Domain.Interface.Service;
 
-namespace MongoDb_Repo.Application.Controllers
+namespace Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -12,7 +12,7 @@ namespace MongoDb_Repo.Application.Controllers
         [HttpPost("Evaluation")]
         public async Task<IActionResult> UploadEvaluation(string authorId, List<IFormFile> files)
         {
-            var _files = files.Where(f => f.Length > 0).Select(f => new KeyValuePair<string,Stream>(f.FileName, f.OpenReadStream()));
+            var _files = files.Where(f => f.Length > 0).Select(f => new KeyValuePair<string, Stream>(f.FileName, f.OpenReadStream()));
             var result = await _uploadService.HandleEvaluationFiles(_files, authorId);
             return Ok(new { UploadedCounts = files.Count, InsertedCount = result });
         }

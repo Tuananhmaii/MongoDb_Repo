@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace MongoDb_Repo.Infrastructure.Extension
+namespace MongoDb_Repo.Application.Extension
 {
     public static class DataRowExtension
     {

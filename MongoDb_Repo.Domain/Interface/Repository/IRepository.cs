@@ -1,5 +1,5 @@
 ﻿using System.Linq.Expressions;
-namespace MongoDb_Repo.Domain.Interface
+namespace MongoDb_Repo.Domain.Interface.Repository
 {
     public interface IRepository<T> where T : class
     {

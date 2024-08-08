@@ -1,10 +1,10 @@
 ﻿using ExcelDataReader;
 using MongoDb_Repo.Domain.Models;
-using MongoDb_Repo.Infrastructure.Extension;
-using MongoDb_Repo.Infrastructure.Interface;
+using MongoDb_Repo.Application.Extension;
+using MongoDb_Repo.Domain.Interface.Service;
 using System.Data;
 
-namespace MongoDb_Repo.Infrastructure.Service
+namespace MongoDb_Repo.Application.Service
 {
     public class ExcelService : IExcelService
     {

@@ -1,6 +1,7 @@
 using MongoDb_Repo.Blazor.Components;
 using MudBlazor;
 using MudBlazor.Services;
+using MongoDb_Repo.Application.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,7 @@ builder.Services.AddMudServices(config =>
 builder.Services.AddScoped(sp =>
     new HttpClient
     {
-        BaseAddress = new Uri("https://localhost:7171")
+        BaseAddress = new Uri("https://localhost:7219")
     });
 
 builder.Services.AddScoped<UserService>();
